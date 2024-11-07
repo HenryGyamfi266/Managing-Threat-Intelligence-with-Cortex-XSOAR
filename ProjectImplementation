@@ -1,0 +1,41 @@
+**Task1**-XSOAR Marketplace & Integrations
+In this section, I review the XSOAR marketplace and integrations.
+1. Access the XSOAR console. Went to Marketplace → Browse. Checked on Show installed to view the installed marketplace integrations.
+2. Search for the Generic Export Indicators Service content pack. Searched: Generic Export Indicators Service
+3. Clicked  through the tabs to view more details about the content pack.
+4. Next thing I did was managing Marketplace Integrations. Went to Settings → Integrations. Searched for the Feodo marketplace integration.Searched: Feodo
+5. Clicked the gear icon to view the Instance settings of the Feodo Tracker IP Blocklist Feed. Clicked cancel to exit. 
+
+**Task2**-XSOAR Dashboards & Incidents
+Here, I reviewed the dashboards within XSOAR along with the Threat Intel user interface. 
+Studied how to associate indicators from 3rd party integrations with security incidents.
+1. Went to Dashboard & Reports → Threat Intel Management.
+XSOAR automatically collected & maps threat data to security incidents and displayed it in the TIM dashboard.
+2. Set the Date Range to All times.
+3. Searched for indicators from Palo Alto Networks Unit 42 Threat Resarch team.Searched: sourceBrands:"Unit42v2 Feed"
+
+Reviewing Threat Intel
+4. In XSOAR, navigated to Threat Intel.
+Threat Intel displayed information on fetched indicators, including type, value, reputation, related incidents
+5. Searched for indicators from Unit 42 with the tag intrusion-set. Searched sourceBrands:"Unit42v2 Feed" and tags:intrusion-set
+6. Clicked any of the Indicators to perform further investigation.
+
+Associating Indicators to Incidents
+Used XSOAR's CLI to associate an indicator from the Feodo integration with a security incident. The XSOAR CLI enables running of commands to perform different tasks.
+7. In Threat Intel, searched for malicious indicators from the Feodo integration. Searched: sourceInstances:"Feodo Tracker IP Blocklist Feed_instance_1" and verdict:Malicious
+8. Selected the indicator with the IP Value 146.70.149.32.
+9. Under Related Incidents, I saw no related incidents for the indicator.
+10. In the XSOAR CLI, I associate the indicator with a security incident with code:
+# !associateIndicatorsToIncident incidentId=1 indicatorsValues=146.70.149.32
+11. Pressed enter to execute the command. When prompted, clicked Yes, execute in playground.
+Went to Threat Intel and searched for the indicator. Searched: type:IP value:146.70.149.32
+12. Selected the 146.70.149.32 indicator.
+13. Under Related Incidents verified the indicator has been associated with the incident ID 1.
+14. 
+
+
+
+
+
+
+
